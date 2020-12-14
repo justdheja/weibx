@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+	<%- include('../partials/head.ejs') %>
+	<body>
+    <%- include('../partials/nav.ejs') %>
+    <div class="container body">
+      <h2 class="text-center"><%= course.title %></h2>
+  
+      <div class="details container">  
+        <iframe class="d-block mx-auto my-3" src="https://www.youtube.com/embed/<%= course.youtubeId %> " frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        
+        <div class="user">
+          <img src="<%= course.picture %>" alt="">
+          <p>
+            <strong>
+              <%= course.author %> 
+            </strong>
+          </p>
+        </div>
+        
+        <p class="mt-2 text-justify">
+          <i>
+            <%= course.description %> 
+          </i>
+        </p>
+        <% if (user) { %>
+          <% if (course.googleId === user.googleId) { %>
+            <a data-doc="<%= course._id %>" id="delete" class="my-4 d-block ml-auto btn btn-danger">
+              <i class="fas fa-trash-alt"></i>
+            </a>
+          <% } %>
+        <% } %>
+      </div>
+    </div>
+
+    <%- include('../partials/footer.ejs') %>
+    
+    <script>
+      const deleteButton = document.querySelector('#delete')
+
+      deleteButton.addEventListener('click',(e) => {
+        const endpoint = `/course/${deleteButton.dataset.doc}`
+
+        fetch(endpoint, {
+          method: 'DELETE'
+        })
+        .then((response) => response.json())
+        .then((data) => window.location.href = '/course')
+        .catch((err) => {
+          console.log(err)
+        })
+      })
+    </script>
+	</body>
+</html>

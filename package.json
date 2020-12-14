@@ -1,0 +1,34 @@
+{
+  "name": "weibx",
+  "version": "1.0.0",
+  "description": "Weibx",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iamshaunjp/node-crash-course.git"
+  },
+  "author": "net ninja",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iamshaunjp/node-crash-course/issues"
+  },
+  "homepage": "https://github.com/iamshaunjp/node-crash-course#readme",
+  "dependencies": {
+    "cookie-session": "^1.4.0",
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "firebase": "^8.1.1",
+    "lodash": "^4.17.15",
+    "mongoose": "^5.10.15",
+    "morgan": "^1.10.0",
+    "passport": "^0.4.1",
+    "passport-google-oauth20": "^2.0.0"
+  },
+  "engines": {
+    "node": "12.11.1"
+  }
+}
